@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <EMP EMPNO="9998" ENAME="TEst" JOB="Eins" HIREDATE="1982-01-23" SAL="1300" DEPTNO="10"/>
+    <EMP EMPNO="9999" ENAME="Test" JOB="Zwei" MGR="9998" HIREDATE="1982-01-23" SAL="1300" DEPTNO="10"/>
+</dataset>
