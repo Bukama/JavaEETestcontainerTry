@@ -1,4 +1,7 @@
-create table dept(  
+-- Second step: Create tables
+-- Execute as user "c##schemauser"
+
+create table dept(
   deptno     number(2,0),  
   dname      varchar2(14),  
   loc        varchar2(13),  
@@ -48,3 +51,6 @@ Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('7934','M
 
 Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('9999','Test','Eins','7782',to_date('23.01.82','DD.MM.RR'),'1300',null,'10');
 Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('9998','Test','Zwei','7782',to_date('23.01.82','DD.MM.RR'),'1300',null,'10');
+
+
+commit;
