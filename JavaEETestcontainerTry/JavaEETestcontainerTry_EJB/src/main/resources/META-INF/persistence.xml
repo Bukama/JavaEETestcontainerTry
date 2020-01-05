@@ -5,15 +5,19 @@
  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <persistence-unit name="ReadingDS" transaction-type="JTA">
+
+        <!-- Hibernate provider -->
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
+        <!-- JNDI name of datasource (here Wildfly 18 is used therefor the prefix must be java:jboss)-->
         <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>
-        <!-- <jta-data-source>bish/jdbc/testcontainer/readingDS</jta-data-source> liberty-->
 
         <properties>
+            <!-- Hibernante dialect for Oracle 12c -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
 
 
+            <!-- For logging SQL statements and SQL statistics -->
             <property name="show_sql" value="true"/>
             <property name="hibernate.generate_statistics" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
@@ -21,17 +25,15 @@
         </properties>
     </persistence-unit>
 
-
+    <!-- Same for the writing user if you want to verify the other datasource.
+    NOTE: DELETES ALL RECORDS IN STATUP BEAN! -->
     <persistence-unit name="WritingDS" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-
         <jta-data-source>java:jboss/jdbc/testcontainer/writingDS</jta-data-source>
-
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
-
 
             <property name="show_sql" value="true"/>
             <property name="hibernate.generate_statistics" value="true"/>

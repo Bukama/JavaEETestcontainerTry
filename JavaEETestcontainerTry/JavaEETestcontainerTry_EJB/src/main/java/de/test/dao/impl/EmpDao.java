@@ -7,7 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-
+/**
+ * Simple interface implementation. The PersistenceContext is definied by a JPA persistence unit.
+ */
 public class EmpDao implements IEmpDao {
 
     @PersistenceContext(unitName = "ReadingDS")

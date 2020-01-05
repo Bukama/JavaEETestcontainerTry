@@ -10,7 +10,8 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
- * Class only for test purpose
+ * This @StartUp Bean is used as a test class to verify the database configuration when the app is manually deployed
+ * to an application server.
  */
 
 @Singleton
