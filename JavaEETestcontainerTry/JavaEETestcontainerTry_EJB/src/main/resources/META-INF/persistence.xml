@@ -9,6 +9,8 @@
 
         <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>
 
+        <!-- <jta-data-source>bish/jdbc/testcontainer/readingDS</jta-data-source> -->
+
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
 

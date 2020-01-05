@@ -2,12 +2,10 @@ package de.test;
 
 import de.test.entities.Emp;
 import de.test.service.EmpService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -15,12 +13,9 @@ import java.util.List;
  * Class only for test purpose
  */
 
-@Stateless
+@Singleton
 @Startup
 public class StartUp {
-
-    private static final Logger logger = LogManager.getLogger(StartUp.class);
-
     @Inject
     EmpService empService;
 
@@ -30,13 +25,13 @@ public class StartUp {
 
         // For Tests only
         List<Emp> allEmps = empService.getAllEmps();
-        logger.trace("There are [{}] emps stored", allEmps.size());
+        System.out.println("There are [" + allEmps.size() + "] emps stored");
 
-        logger.trace("Trying to delete the emps, but this should fail because the app is not allowed to");
+        System.out.println("Trying to delete the emps, but this should fail because the app is not allowed to");
         try {
             empService.deleteEmp();
         } catch (Exception e) {
-            logger.error("Exception while trying to delete the emps", e);
+            e.printStackTrace();
         }
 
     }
