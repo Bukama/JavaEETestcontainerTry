@@ -10,7 +10,7 @@ import java.util.List;
 
 public class EmpDao implements IEmpDao {
 
-    @PersistenceContext // (unitName = "ReadingUnit")
+    @PersistenceContext(unitName = "ReadingDS")
     private EntityManager em;
 
     public void removeAllEmps() {

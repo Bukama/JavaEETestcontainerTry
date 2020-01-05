@@ -4,10 +4,10 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="ReadingUnit" transaction-type="JTA">
+    <persistence-unit name="ReadingDS" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <jta-data-source>java:/ReadingDS</jta-data-source>
+        <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
