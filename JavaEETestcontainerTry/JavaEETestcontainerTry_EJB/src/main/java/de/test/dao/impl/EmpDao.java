@@ -11,6 +11,7 @@ import java.util.List;
 public class EmpDao implements IEmpDao {
 
     @PersistenceContext(unitName = "ReadingDS")
+    // @PersistenceContext(unitName = "WritingDS")
     private EntityManager em;
 
     public void removeAllEmps() {

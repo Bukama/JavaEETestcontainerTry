@@ -8,8 +8,26 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>
+        <!-- <jta-data-source>bish/jdbc/testcontainer/readingDS</jta-data-source> liberty-->
 
-        <!-- <jta-data-source>bish/jdbc/testcontainer/readingDS</jta-data-source> -->
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
+
+
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.generate_statistics" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+    <persistence-unit name="WritingDS" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+
+        <jta-data-source>java:jboss/jdbc/testcontainer/writingDS</jta-data-source>
+
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
