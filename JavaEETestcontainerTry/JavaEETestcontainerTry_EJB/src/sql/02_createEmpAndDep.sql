@@ -1,4 +1,6 @@
 -- Second step: Create tables
+-- (C)  by Oracle
+-- https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html
 -- Execute as user "c##schemauser"
 
 create table dept(
@@ -7,6 +9,8 @@ create table dept(
   loc        varchar2(13),  
   constraint pk_dept primary key (deptno)  
 );
+
+
 
 create table emp(  
   empno    number(4,0),  
@@ -20,6 +24,7 @@ create table emp(
   constraint pk_emp primary key (empno),  
   constraint fk_deptno foreign key (deptno) references dept (deptno)  
 );
+
 
 insert into DEPT (DEPTNO, DNAME, LOC)
 values(10, 'ACCOUNTING', 'NEW YORK');
@@ -48,9 +53,5 @@ Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('7844','T
 Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('7876','ADAMS','CLERK','7788',to_date('12.01.83','DD.MM.RR'),'1100',null,'20');
 Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('7900','JAMES','CLERK','7698',to_date('03.12.81','DD.MM.RR'),'950',null,'30');
 Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('7934','MILLER','CLERK','7782',to_date('23.01.82','DD.MM.RR'),'1300',null,'10');
-
-Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('9999','Test','Eins','7782',to_date('23.01.82','DD.MM.RR'),'1300',null,'10');
-Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values ('9998','Test','Zwei','7782',to_date('23.01.82','DD.MM.RR'),'1300',null,'10');
-
 
 commit;
