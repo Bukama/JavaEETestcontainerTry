@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name = "Emp.findAll", query = "SELECT e FROM Emp e")
-@Table(name = "Employee", schema = "bish") // Schema only for test until synonms are created
+@Table(name = "Emp", schema = "c##schemauser") // Schema only for test until synonms are created
 public class Emp implements Serializable {
     private static final long serialVersionUID = 1L;
 
