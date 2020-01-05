@@ -42,11 +42,11 @@ The script do:
 * Create tables using Oracles "DEPT EMP" example script
 * Creating synonyms on the tables
 * Creating two others users which have
-    * select/update privileges (readinguser) on the emp table
-    * select/insert/update/delete privileges (writinguser) on both tables
+    * select/update privileges (`readinguser`) on the emp table
+    * select/insert/update/delete privileges (`writinguser`) on both tables
     
-*Note:* My local installation used used the SID _containers_. Therefore the connection-URL for me in this project
-(and the example configuration files) is _jdbc:oracle:thin:@localhost:1521:container_    
+*Note:* My local installation used used the SID `containers`. Therefore the connection-URL for me in this project
+(and the example configuration files) is `jdbc:oracle:thin:@localhost:1521:container`    
     
 ## 02 Setting up Wildfly 18
 This step was only done to verify the correct work of the application and hibernate configuration
@@ -56,28 +56,29 @@ If you would like to verify it too you have to do the following things
 
 ### 02.a Configuring Oracle JDBC driver ### 
 
-Put the jdbc jar (e.g. ojdb8.jar ) into the folder _<WILDFLY-DIR>\modules\system\layers\base\com\oracle\main_.
+Put the JDBC jar (e.g. `ojdb8.jar` ) into the folder `<WILDFLY-DIR>\modules\system\layers\base\com\oracle\main`.
 If it doesn't exists (most probably) create it.
-Also put the file named _module.xml_ (see Config/Wildfly18) inside it.
+Also put the file named `module.xml` (see folder `Config/Wildfly18`) inside it.
 
 After that you have to configure the server so it knows the driver and configure the datasources.
-I've put my full _standalone.xml_ of Wildfly (origin folder _<WILDFLY-DIR>\standalone\configuration_) into the Config/Wildfly18 folder.
-Inside the _<datasources>_ section there are two datasources (_readingDS_ and _writingDS_ ) defined.
-Inside the _<drivers>_ section the Oracle JDBC driver is definied.
+I've put my full _standalone.xml_ of Wildfly (origin folder `<WILDFLY-DIR>\standalone\configuration`)
+into the Config/Wildfly18 folder.
+Inside the `<datasources>` section there are two datasources (_readingDS_ and _writingDS_ ) defined.
+Inside the `<drivers>` section the Oracle JDBC driver is definied.
 No other changes of the original file have been made.
 
 ### 02.b Creating user for admin console ###
 
 By default no user for the admin console is created so you have to do this.
 
-Execute the _"add_user.bat"_ script inside _<WILDFLY-DIR>\bin_) and add a management user
+Execute the `add_user.bat` script inside `<WILDFLY-DIR>\bin`) and add a management user
 
 Source: [mastertheboss.com - wildfly-how-to-add-an-user](http://www.mastertheboss.com/jboss-server/jboss-script/wildfly-how-to-add-an-user )
  
 
 ### 02.c Verifyinng the application ###
 
-After setting up the Wildfly you should be able to access the admin console (_http://localhost:9990/_).
+After setting up the Wildfly you should be able to access the admin console (`http://localhost:9990/`).
 
 There you should see the two datasources which should connect successfully.
  
