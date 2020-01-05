@@ -9,14 +9,36 @@
     <artifactId>Testproject_EAR</artifactId>
     <packaging>ear</packaging>
 
-
     <dependencies>
         <dependency>
             <groupId>test</groupId>
             <artifactId>JavaEETestcontainerTry_EJB</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>test</groupId>
+                            <artifactId>JavaEETestcontainerTry_EJB</artifactId>
+                        </ejbModule>
+                    </modules>
+                    <includeInApplicationXml>true</includeInApplicationXml>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
 
 </project>
