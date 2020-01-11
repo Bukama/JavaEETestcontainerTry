@@ -50,7 +50,7 @@ The script do:
     
 ## 02 Setting up Wildfly 18
 This step was only done to verify the correct work of the application and hibernate configuration
-via manuel tests before putting hands on _Testcontainers_.
+via manual tests before putting hands on _Testcontainers_.
 
 If you would like to verify it too you have to do the following things
 
@@ -93,3 +93,14 @@ You should see a similar output like inside the file `Logs/manualTest.log`:
 * StartupBean is started
     * First output prints the number of `emps` successfully
     * Second output is an exception because the `readinguser` has no rights to delete
+
+
+# Tag overview
+
+Some git tags where created to make it easier setting the project to a explicit state:
+
+| Tag          | State description                                                                                                                                           |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| initialSetup | Setting up database, application and application server. <br> Application can be deployed manually to verify the correct behavior of the datasource. |
+|              |                                                                                                                                                 |
+|              |                                                                                                                                                 |
