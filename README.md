@@ -25,7 +25,7 @@ test data for special purposes which should not to be in general schema)
 * The application schema with main test data should be inside the container image so test preparation 
 
 **Further requirements**:
-* Database uses synonms to be stage independet
+* Database uses synonyms to be stage independent
 
 # Others
 
@@ -34,12 +34,12 @@ Feel free to contribute!
 
 # Preparation
 ## 01 Setting up Oracle Database
-Inside the Config/sql foldere there are scripts to set up the database.
+Inside the Config/sql folder there are scripts to set up the database.
 An installed Oracle 12.1 database is needed. Downloadable at [Oracle 12c downloads](https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html).
 
 The script do:
-* Create a user which serves as the schemauser
-* Create tables using Oracles "DEPT EMP" example script
+* Create a user which serves as the `schemauser`
+* Create tables using Oracles [`DEPT EMP` example script](https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html)
 * Creating synonyms on the tables
 * Creating two others users which have
     * select/update privileges (`readinguser`) on the emp table
@@ -64,7 +64,7 @@ After that you have to configure the server so it knows the driver and configure
 I've put my full _standalone.xml_ of Wildfly (origin folder `<WILDFLY-DIR>\standalone\configuration`)
 into the Config/Wildfly18 folder.
 Inside the `<datasources>` section there are two datasources (_readingDS_ and _writingDS_ ) defined.
-Inside the `<drivers>` section the Oracle JDBC driver is definied.
+Inside the `<drivers>` section the Oracle JDBC driver is defined.
 No other changes of the original file have been made.
 
 ### 02.b Creating user for admin console ###
@@ -82,6 +82,14 @@ After setting up the Wildfly you should be able to access the admin console (`ht
 
 There you should see the two datasources which should connect successfully.
  
-You should also be able to deploy the EAR of the application after creating it, using a maven build.
+ 
+# 03 Manual Check of the application setup 
+After setting up the Wildfly, you should also be able to deploy the EAR of the
+application after creating it, using a maven build.
 
+You should see a similar output like inside the file `Logs/manualTest.log`:
 
+* Hibernates schema validations was successful
+* StartupBean is started
+    * First output prints the number of `emps` successfully
+    * Second output is an exception because the `readinguser` has no rights to delete
