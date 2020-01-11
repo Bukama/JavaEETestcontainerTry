@@ -15,7 +15,7 @@ local.properties
 *.launch
 
 # JetBrains
-
+*/.idea/
 .idea/
 *.iws
 /out/
