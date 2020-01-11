@@ -1,0 +1,178 @@
+10:40:13,490 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment Testproject_EAR-0.0.1-SNAPSHOT.ear
+10:40:13,764 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-1) ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.16.Final
+10:40:14,012 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 79) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#ReadingDS'
+10:40:14,011 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 15) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#WritingDS'
+10:40:14,060 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 79) HHH000204: Processing PersistenceUnitInfo [
+        name: ReadingDS
+        ...]
+10:40:14,060 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 15) HHH000204: Processing PersistenceUnitInfo [
+        name: WritingDS
+        ...]
+10:40:14,251 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 79) HHH000412: Hibernate Core {5.3.13.Final}
+10:40:14,255 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 79) HHH000206: hibernate.properties not found
+10:40:14,486 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 79) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+10:40:14,844 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-8) HV000001: Hibernate Validator 6.0.18.Final
+10:40:15,156 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar
+10:40:15,172 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'StartUp' in deployment unit 'subdeployment "test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar" of deployment "Testproject_EAR-0.0.1-SNAPSHOT.ear"' are as follows:
+
+        java:global/Testproject_EAR-0.0.1-SNAPSHOT/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT/StartUp!de.test.StartUp
+        java:app/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT/StartUp!de.test.StartUp
+        java:module/StartUp!de.test.StartUp
+        ejb:Testproject_EAR-0.0.1-SNAPSHOT/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT/StartUp!de.test.StartUp
+        java:global/Testproject_EAR-0.0.1-SNAPSHOT/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT/StartUp
+        java:app/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT/StartUp
+        java:module/StartUp
+
+10:40:15,282 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 3.1.2 (Final)
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.jboss.invocation.proxy.AbstractProxyFactory$1 (jar:file:/C:/wildfly18/modules/system/layers/base/org/jboss/invocation/main/jboss-invocation-1.5.2.Final.jar!/) to method java.lang.Object.clone()
+WARNING: Please consider reporting this to the maintainers of org.jboss.invocation.proxy.AbstractProxyFactory$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+10:40:15,639 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 79) WFLYCLINF0002: Started client-mappings cache from ejb container
+10:40:15,898 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 15) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#ReadingDS'
+10:40:15,898 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 79) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#WritingDS'
+10:40:15,954 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 15) HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+10:40:15,954 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 79) HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+10:40:16,205 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 79) HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@10637281
+10:40:16,206 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 79) HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@10637281
+10:40:16,210 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 79) HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@21c3cb6c
+10:40:16,214 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 79) HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@21c3cb6c
+10:40:16,205 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 15) HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@10637281
+10:40:16,217 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 15) HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@10637281
+10:40:16,219 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 15) HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@21c3cb6c
+10:40:16,224 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 15) HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@21c3cb6c
+10:40:16,226 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 79) Envers integration enabled? : true
+10:40:16,228 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 15) Envers integration enabled? : true
+10:40:17,146 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 15) HHH000397: Using ASTQueryTranslatorFactory
+10:40:17,146 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 79) HHH000397: Using ASTQueryTranslatorFactory
+10:40:17,376 INFO  [io.smallrye.metrics] (MSC service thread 1-6) MicroProfile: Metrics activated
+10:40:17,989 INFO  [stdout] (ServerService Thread Pool -- 15) =========== StartUp - POSTConstruct ===========
+10:40:18,186 INFO  [stdout] (ServerService Thread Pool -- 15) There are [14] emps stored
+10:40:18,186 INFO  [stdout] (ServerService Thread Pool -- 15) Trying to delete the emps, but this should fail because the app is not allowed to
+10:40:18,220 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 15) SQL Error: 1031, SQLState: 42000
+10:40:18,220 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (ServerService Thread Pool -- 15) ORA-01031: Nicht ausreichende Berechtigungen
+
+10:40:18,232 ERROR [stderr] (ServerService Thread Pool -- 15) javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute statement
+10:40:18,234 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+10:40:18,235 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+10:40:18,238 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.query.internal.AbstractProducedQuery.executeUpdate(AbstractProducedQuery.java:1594)
+10:40:18,238 ERROR [stderr] (ServerService Thread Pool -- 15)   at deployment.Testproject_EAR-0.0.1-SNAPSHOT.ear.test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar//de.test.dao.impl.EmpDao.removeAllEmps(EmpDao.java:20)
+10:40:18,239 ERROR [stderr] (ServerService Thread Pool -- 15)   at deployment.Testproject_EAR-0.0.1-SNAPSHOT.ear.test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar//de.test.service.EmpService.deleteEmp(EmpService.java:15)
+10:40:18,240 ERROR [stderr] (ServerService Thread Pool -- 15)   at deployment.Testproject_EAR-0.0.1-SNAPSHOT.ear.test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar//de.test.StartUp.postConstruct(StartUp.java:33)
+10:40:18,240 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+10:40:18,241 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+10:40:18,242 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+10:40:18,242 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+10:40:18,243 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:96)
+10:40:18,249 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,250 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:509)
+10:40:18,251 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld.common@18.0.1.Final//org.jboss.as.weld.interceptors.Jsr299BindingsInterceptor.delegateInterception(Jsr299BindingsInterceptor.java:79)
+10:40:18,251 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld.common@18.0.1.Final//org.jboss.as.weld.interceptors.Jsr299BindingsInterceptor.doLifecycleInterception(Jsr299BindingsInterceptor.java:126)
+10:40:18,252 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld.common@18.0.1.Final//org.jboss.as.weld.interceptors.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:112)
+10:40:18,253 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,254 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:509)
+10:40:18,255 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.weld.core@3.1.2.Final//org.jboss.weld.module.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:81)
+10:40:18,256 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld.common@18.0.1.Final//org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:89)
+10:40:18,256 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,257 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld@18.0.1.Final//org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:53)
+10:40:18,263 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,264 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.AroundConstructInterceptorFactory$1.processInvocation(AroundConstructInterceptorFactory.java:28)
+10:40:18,265 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,265 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld@18.0.1.Final//org.jboss.as.weld.injection.WeldInterceptorInjectionInterceptor.processInvocation(WeldInterceptorInjectionInterceptor.java:56)
+10:40:18,266 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,266 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld@18.0.1.Final//org.jboss.as.weld.interceptors.Jsr299BindingsCreateInterceptor.processInvocation(Jsr299BindingsCreateInterceptor.java:111)
+10:40:18,267 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,268 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50)
+10:40:18,268 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,272 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:237)
+10:40:18,275 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.tx.CMTTxInterceptor.requiresNew(CMTTxInterceptor.java:388)
+10:40:18,275 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.processInvocation(LifecycleCMTTxInterceptor.java:68)
+10:40:18,276 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,277 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.weld@18.0.1.Final//org.jboss.as.weld.injection.WeldInjectionContextInterceptor.processInvocation(WeldInjectionContextInterceptor.java:43)
+10:40:18,279 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,280 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
+10:40:18,281 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,282 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.concurrent.ConcurrentContextInterceptor.processInvocation(ConcurrentContextInterceptor.java:45)
+10:40:18,283 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,284 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:60)
+10:40:18,287 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,291 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.component.singleton.StartupCountDownInterceptor.processInvocation(StartupCountDownInterceptor.java:25)
+10:40:18,295 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
+10:40:18,297 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.invocation@1.5.2.Final//org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:53)
+10:40:18,297 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161)
+10:40:18,299 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:134)
+10:40:18,299 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:88)
+10:40:18,300 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.component.singleton.SingletonComponent.getComponentInstance(SingletonComponent.java:127)
+10:40:18,304 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ejb3@18.0.1.Final//org.jboss.as.ejb3.component.singleton.SingletonComponent.start(SingletonComponent.java:141)
+10:40:18,306 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.as.ee@18.0.1.Final//org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:54)
+10:40:18,307 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+10:40:18,308 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+10:40:18,309 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.threads@2.3.3.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+10:40:18,309 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.threads@2.3.3.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+10:40:18,310 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.threads@2.3.3.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+10:40:18,311 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.threads@2.3.3.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+10:40:18,311 ERROR [stderr] (ServerService Thread Pool -- 15)   at java.base/java.lang.Thread.run(Thread.java:835)
+10:40:18,312 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.threads@2.3.3.Final//org.jboss.threads.JBossThread.run(JBossThread.java:485)
+10:40:18,319 ERROR [stderr] (ServerService Thread Pool -- 15) Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
+10:40:18,319 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63)
+10:40:18,320 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+10:40:18,320 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+10:40:18,321 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+10:40:18,322 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:178)
+10:40:18,322 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.hql.internal.ast.exec.BasicExecutor.doExecute(BasicExecutor.java:100)
+10:40:18,323 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.hql.internal.ast.exec.BasicExecutor.execute(BasicExecutor.java:59)
+10:40:18,324 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.hql.internal.ast.exec.DeleteExecutor.execute(DeleteExecutor.java:109)
+10:40:18,331 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.hql.internal.ast.QueryTranslatorImpl.executeUpdate(QueryTranslatorImpl.java:453)
+10:40:18,331 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.engine.query.spi.HQLQueryPlan.performExecuteUpdate(HQLQueryPlan.java:378)
+10:40:18,332 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.internal.SessionImpl.executeUpdate(SessionImpl.java:1561)
+10:40:18,333 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.query.internal.AbstractProducedQuery.doExecuteUpdate(AbstractProducedQuery.java:1603)
+10:40:18,333 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.query.internal.AbstractProducedQuery.executeUpdate(AbstractProducedQuery.java:1585)
+10:40:18,334 ERROR [stderr] (ServerService Thread Pool -- 15)   ... 57 more
+10:40:18,336 ERROR [stderr] (ServerService Thread Pool -- 15) Caused by: java.sql.SQLSyntaxErrorException: ORA-01031: Nicht ausreichende Berechtigungen
+10:40:18,340 ERROR [stderr] (ServerService Thread Pool -- 15)
+10:40:18,341 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+10:40:18,342 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+10:40:18,343 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+10:40:18,343 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+10:40:18,344 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+10:40:18,345 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+10:40:18,346 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+10:40:18,347 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+10:40:18,350 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+10:40:18,352 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+10:40:18,353 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+10:40:18,354 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+10:40:18,354 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:3730)
+10:40:18,355 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3710)
+10:40:18,356 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1061)
+10:40:18,356 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.jboss.ironjacamar.jdbcadapters@1.4.17.Final//org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeUpdate(WrappedPreparedStatement.java:537)
+10:40:18,357 ERROR [stderr] (ServerService Thread Pool -- 15)   at org.hibernate@5.3.13.Final//org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:175)
+10:40:18,357 ERROR [stderr] (ServerService Thread Pool -- 15)   ... 65 more
+10:40:18,359 ERROR [stderr] (ServerService Thread Pool -- 15) Caused by: Error : 1031, Position : 12, Sql = delete from Emp, OriginalSql = delete from Emp, Error Msg = ORA-01031: Nicht ausreichende Berechtigungen
+10:40:18,365 ERROR [stderr] (ServerService Thread Pool -- 15)
+10:40:18,366 ERROR [stderr] (ServerService Thread Pool -- 15)   at com.oracle@18.3.0.0.0//oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+10:40:18,367 ERROR [stderr] (ServerService Thread Pool -- 15)   ... 81 more
+10:40:18,374 INFO  [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener] (ServerService Thread Pool -- 15) Session Metrics {
+    21026900 nanoseconds spent acquiring 2 JDBC connections;
+    73400 nanoseconds spent releasing 2 JDBC connections;
+    47835000 nanoseconds spent preparing 2 JDBC statements;
+    17945500 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    18442500 nanoseconds spent executing 2 partial-flushes (flushing a total of 14 entities and 14 collections)
+}
+10:40:18,484 INFO  [org.jboss.as.server] (External Management Request Threads -- 1) WFLYSRV0010: Deployed "Testproject_EAR-0.0.1-SNAPSHOT.ear" (runtime-name : "Testproject_EAR-0.0.1-SNAPSHOT.ear")
+10:40:43,664 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 80) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#WritingDS'
+10:40:43,664 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 79) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#ReadingDS'
+10:40:43,667 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 80) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@15f4d2da
+10:40:43,670 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 79) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@2baa931
+10:40:43,674 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 79) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#ReadingDS'
+10:40:43,674 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 80) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'Testproject_EAR-0.0.1-SNAPSHOT.ear/test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar#WritingDS'
+10:40:43,719 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0208: Stopped subdeployment (runtime-name: test-JavaEETestcontainerTry_EJB-0.0.1-SNAPSHOT.jar) in 89ms
+10:40:43,747 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment Testproject_EAR-0.0.1-SNAPSHOT.ear (runtime-name: Testproject_EAR-0.0.1-SNAPSHOT.ear) in 118ms
+10:40:43,801 INFO  [org.jboss.as.server] (External Management Request Threads -- 1) WFLYSRV0009: Undeployed "Testproject_EAR-0.0.1-SNAPSHOT.ear" (runtime-name: "Testproject_EAR-0.0.1-SNAPSHOT.ear")
+10:40:43,809 INFO  [org.jboss.as.repository] (External Management Request Threads -- 1) WFLYDR0002: Content removed from location C:\wildfly18\standalone\data\content\fd\e51ba8c0fe91c03f327661847387117677c199\content
