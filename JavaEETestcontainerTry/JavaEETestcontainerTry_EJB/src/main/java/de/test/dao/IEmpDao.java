@@ -3,6 +3,7 @@ package de.test.dao;
 import de.test.entities.Emp;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Simple interface to wrap database access.
@@ -20,5 +21,13 @@ public interface IEmpDao {
      * @return List of stored EMP-Entities
      */
     List<Emp> getAllEmps();
+
+    /**
+     * Searches a record by name of the Emp.
+     *
+     * @param name Name of the Emp
+     * @return Entity if found
+     */
+    Optional<Emp> findByName(String name);
 
 }

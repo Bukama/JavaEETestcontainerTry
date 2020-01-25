@@ -5,6 +5,7 @@ import de.test.entities.Emp;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.Optional;
 
 public class EmpService {
 
@@ -17,6 +18,10 @@ public class EmpService {
 
     public List<Emp> getAllEmps() {
         return empDao.getAllEmps();
+    }
+
+    public Optional<Emp> findByName(String name) {
+        return empDao.findByName(name);
     }
 
 }
