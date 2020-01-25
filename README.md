@@ -33,7 +33,8 @@ Feel free to contribute!
 
 
 # Preparation
-## 01 Setting up Oracle Database
+## 01 Oracle preparations    
+### 01.a Setting up Oracle Database
 Inside the Config/sql folder there are scripts to set up the database.
 An installed Oracle 12.1 database is needed. Downloadable at [Oracle 12c downloads](https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html).
 
@@ -47,6 +48,14 @@ The script do:
     
 *Note:* My local installation used used the SID `containers`. Therefore the connection-URL for me in this project
 (and the example configuration files) is `jdbc:oracle:thin:@localhost:1521:container`    
+    
+### 01.b Storing JDBC driver in local maven repository
+Since late 2019 Oracle has stored the JDBC drivers in a maven repository.
+But to access them you [need to register yourself and add additonal maven settings](https://blogs.oracle.com/dev2dev/get-oracle-jdbc-drivers-and-ucp-from-oracle-maven-repository-without-ides).
+
+As I didn't want to do this I preferred the old way and adding the JDBC driver locally via `mvn install:install-file`:
+
+`mvn install:install-file -Dfile={Path_to_your_ojdbc.jar} -DgroupId=com.oracle.jdbc -DartifactId=ojdbc8 -Dversion=12.2.0.1 -Dpackaging=jar`
     
 ## 02 Setting up Wildfly 18
 This step was only done to verify the correct work of the application and hibernate configuration
