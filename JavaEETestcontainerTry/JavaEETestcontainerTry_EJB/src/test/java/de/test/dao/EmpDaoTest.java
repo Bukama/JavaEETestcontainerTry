@@ -1,22 +1,38 @@
-package de.test.service;
+package de.test.dao;
 
+import com.github.database.rider.core.api.connection.ConnectionHolder;
+import com.github.database.rider.junit5.DBUnitExtension;
+import com.github.database.rider.junit5.util.EntityManagerProvider;
+import de.test.dao.impl.EmpDao;
 import de.test.entities.Emp;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
-import javax.inject.Inject;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-// Disabled, so project can be manually compiled and tested
-@Disabled
-public class EmpServiceTest {
 
-    @Inject
-    EmpService sut;
+@ExtendWith(DBUnitExtension.class)
+@RunWith(JUnitPlatform.class)
+// Disabled, so project can be manually compiled and tested
+//@Disabled
+public class EmpDaoTest {
+
+    private ConnectionHolder connectionHolder = () -> EntityManagerProvider.instance("ReadingDS").connection();
+
+
+    EmpDao sut;
+
+    @BeforeEach
+    public void setUp() {
+        sut = new EmpDao();
+    }
 
     @Test
     public void GetAllEmps() {
@@ -28,7 +44,7 @@ public class EmpServiceTest {
     @Test
     public void DeleteAllEmps() {
         Exception exception = assertThrows(Exception.class, () -> {
-            sut.deleteEmp();
+            sut.removeAllEmps();
         });
 
         //String expectedMessage = "could not execute statement";
