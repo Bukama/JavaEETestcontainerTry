@@ -10,14 +10,14 @@ import java.util.List;
  * The persistent class for the EMP database table.
  */
 @Entity
-@NamedQuery(name = "Emp.findAll", query = "SELECT e FROM Emp e")
 @Table(name = "Emp") // Note: No schema is set because synonyms are used
 public class Emp implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @SequenceGenerator(name = "EMP_EMPNO_GENERATOR", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMP_EMPNO_GENERATOR")
+    // Sequence existiert nicht bzw. kein Synonym fuer, so dass sonst Schemavalidierung fehlschlägt
+//    @SequenceGenerator(name = "EMP_EMPNO_GENERATOR", allocationSize = 1, sequenceName =)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMP_EMPNO_GENERATOR")
     private long empno;
 
     private BigDecimal comm;

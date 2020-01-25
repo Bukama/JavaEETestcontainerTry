@@ -21,6 +21,8 @@
             <property name="show_sql" value="true"/>
             <property name="hibernate.generate_statistics" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.synonyms" value="true"/>
             <property name="use_sql_comments" value="true"/>
         </properties>
     </persistence-unit>
@@ -38,6 +40,9 @@
             <property name="show_sql" value="true"/>
             <property name="hibernate.generate_statistics" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.synonyms" value="true"/>
+
             <property name="use_sql_comments" value="true"/>
         </properties>
     </persistence-unit>
