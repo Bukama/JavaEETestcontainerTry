@@ -21,7 +21,7 @@ public class EmpDao implements IEmpDao {
 
     @PersistenceContext(unitName = "ReadingDS")
     // @PersistenceContext(unitName = "WritingDS")
-    private EntityManager em;
+            EntityManager em;
 
     public void removeAllEmps() {
         em.createQuery("DELETE FROM Emp").executeUpdate();

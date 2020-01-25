@@ -4,10 +4,13 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="ReadingDS" transaction-type="JTA">
+    <persistence-unit name="ReadingDSTest">
 
-        <!-- Hibernate provider -->
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <!-- Hibernate provider
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>de.test.entities.Emp</class>
 
         <!-- JNDI name of datasource (here Wildfly 18 is used therefor the prefix must be java:jboss)
         <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>-->
@@ -16,11 +19,10 @@
             <!-- Hibernante dialect for Oracle 12c -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
 
-
-            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:container"/>
-            <property name="javax.persistence.jdbc.user" value="c##readinguser"/>
-            <property name="javax.persistence.jdbc.password" value="oracle"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:container"/>
+            <property name="hibernate.connection.username" value="c##readinguser"/>
+            <property name="hibernate.connection.password" value="oracle"/>
 
 
             <!-- For logging SQL statements and SQL statistics -->
@@ -33,10 +35,10 @@
 
     <!-- Same for the writing user if you want to verify the other datasource.
     NOTE: DELETES ALL RECORDS IN STATUP BEAN! -->
-    <persistence-unit name="WritingDS" transaction-type="JTA">
+    <persistence-unit name="WritingDSTest">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <jta-data-source>java:jboss/jdbc/testcontainer/writingDS</jta-data-source>
+        <!--<jta-data-source>java:jboss/jdbc/testcontainer/writingDS</jta-data-source>-->
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
