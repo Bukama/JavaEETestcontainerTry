@@ -2,8 +2,10 @@ package de.test.dao.impl;
 
 import de.test.entities.Emp;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -17,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 //@RunWith(JUnitPlatform.class)
 // Disabled, so project can be manually compiled and tested
 //@Disabled
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EmpDaoTest {
 
     //private ConnectionHolder connectionHolder = () -> EntityManagerProvider.instance("ReadingDS").connection();
@@ -26,14 +29,19 @@ public class EmpDaoTest {
 
     @BeforeEach
     public void setUp() {
+        System.setProperty("hibernate.connection.username", System.getProperty("username"));
+        System.setProperty("hibernate.connection.password", System.getProperty("password"));
+
         sut = new EmpDao();
         EntityManager em = Persistence.createEntityManagerFactory("ReadingDSTest").createEntityManager();
-
-
         em.getTransaction().begin();
 
         sut.em = em;
+    }
 
+    @AfterAll
+    void tearDown() {
+        sut.em.getTransaction().commit();
     }
 
     @Test

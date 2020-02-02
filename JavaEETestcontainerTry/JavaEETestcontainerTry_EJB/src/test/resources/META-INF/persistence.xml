@@ -21,8 +21,8 @@
 
             <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
             <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:container"/>
-            <property name="hibernate.connection.username" value="c##readinguser"/>
-            <property name="hibernate.connection.password" value="oracle"/>
+            <!--<property name="hibernate.connection.username" value="c##readinguser"/>
+            <property name="hibernate.connection.password" value="oracle"/>-->
 
 
             <!-- For logging SQL statements and SQL statistics -->
