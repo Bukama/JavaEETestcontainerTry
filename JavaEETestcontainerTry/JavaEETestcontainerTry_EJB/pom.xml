@@ -73,12 +73,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- <dependency>
-             <groupId>org.dbunit</groupId>
-             <artifactId>dbunit</artifactId>
-             <version>2.6.0</version>
-             <scope>test</scope>
-         </dependency>-->
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.6.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.oracle.jdbc</groupId>
@@ -87,12 +87,20 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>
+        <dependency>
             <groupId>com.github.database-rider</groupId>
             <artifactId>rider-junit5</artifactId>
             <version>1.10.0</version>
             <scope>test</scope>
-        </dependency>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-junit5</artifactId>
+            <version>2.0.1.Final</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.javassist</groupId>
