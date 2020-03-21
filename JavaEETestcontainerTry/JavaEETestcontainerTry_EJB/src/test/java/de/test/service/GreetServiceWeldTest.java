@@ -3,11 +3,10 @@ package de.test.service;
 import de.test.util.BeanManagerHelper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
-public class GreetServiceTest {
+//@ExtendWith(WeldJunit5Extension.class)
+public class GreetServiceWeldTest {
 
 
 //    @WeldSetup
