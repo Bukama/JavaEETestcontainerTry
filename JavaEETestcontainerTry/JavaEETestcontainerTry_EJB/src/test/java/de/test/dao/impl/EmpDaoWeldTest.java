@@ -5,6 +5,7 @@ import de.test.service.EmpService;
 import org.assertj.core.api.Assertions;
 import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 //@ExtendWith(DBUnitExtension.class)
 //@RunWith(JUnitPlatform.class)
 // Disabled, so project can be manually compiled and tested
-//@Disabled
+@Disabled
 @EnableAutoWeld
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EmpDaoWeldTest {

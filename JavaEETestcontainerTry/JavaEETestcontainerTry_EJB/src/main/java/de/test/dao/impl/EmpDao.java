@@ -4,8 +4,8 @@ import de.test.dao.IEmpDao;
 import de.test.entities.Emp;
 import de.test.entities.Emp_;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -19,9 +19,8 @@ import java.util.Optional;
  */
 public class EmpDao implements IEmpDao {
 
-    @PersistenceContext(unitName = "ReadingDS")
-    // @PersistenceContext(unitName = "WritingDS")
-            EntityManager em;
+    @Inject
+    EntityManager em;
 
     public void removeAllEmps() {
         em.createQuery("DELETE FROM Emp").executeUpdate();

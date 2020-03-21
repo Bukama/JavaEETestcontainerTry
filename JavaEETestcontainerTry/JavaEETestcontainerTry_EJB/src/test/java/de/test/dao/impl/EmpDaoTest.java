@@ -2,10 +2,7 @@ package de.test.dao.impl;
 
 import de.test.entities.Emp;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -18,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 //@ExtendWith(DBUnitExtension.class)
 //@RunWith(JUnitPlatform.class)
 // Disabled, so project can be manually compiled and tested
-//@Disabled
+@Disabled
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EmpDaoTest {
 

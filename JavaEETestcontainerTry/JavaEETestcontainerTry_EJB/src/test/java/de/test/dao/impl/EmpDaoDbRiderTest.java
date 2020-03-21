@@ -7,6 +7,7 @@ import com.github.database.rider.junit5.DBUnitExtension;
 import de.test.entities.Emp;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -17,7 +18,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
+@Disabled
 @ExtendWith(DBUnitExtension.class)
 @RunWith(JUnitPlatform.class)
 @DBUnit(url = "jdbc:oracle:thin:@localhost:1521:containers;DB_CLOSE_DELAY=-1", driver = "oracle.jdbc.OracleDriver", user = "c##readinguser", password = "oralce")
