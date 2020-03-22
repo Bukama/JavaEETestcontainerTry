@@ -1,9 +1,9 @@
 package de.test.service;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-@Stateless
+@ApplicationScoped
 public class GreetService {
 
     @Inject
