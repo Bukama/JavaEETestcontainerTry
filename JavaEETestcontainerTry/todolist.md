@@ -10,7 +10,7 @@
 
 * How liberty gets configured, datasources etc
 * How is this done dynamically? (even needed in containers)
-* Using [Testcontainers](https://www.testcontainers.org/) / [maven-liberty-plugin / Microshed](https://openliberty.io/guides/microshed-testing.html)
+* Using [Testcontainers](https://www.testcontainers.org/) / [maven-liberty-plugin](https://github.com/OpenLiberty/ci.maven) / [Microshed-Test](https://openliberty.io/guides/microshed-testing.html)
 * How are `ResEnvEntries` possible in liberty?
 
 # Container for deployment
