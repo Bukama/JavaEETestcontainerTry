@@ -21,6 +21,7 @@ If you want to help me, please contant me at [twitter @bukamabish] or leave and 
 - How liberty gets configured, datasources etc
 - How is this done dynamically? (even needed in containers)
 - Using [Testcontainers](https://www.testcontainers.org/) / [maven-liberty-plugin](https://github.com/OpenLiberty/ci.maven) / [Microshed-Test](https://openliberty.io/guides/microshed-testing.html)
+- [Easy Integration Testing With Testcontainers](https://dzone.com/articles/easy-integration-testing-with-testcontainers)
 - How are `ResEnvEntries` possible in liberty?
 - How are JMS possible in containers
 - How combine container? (One for app Server and one for database)?
