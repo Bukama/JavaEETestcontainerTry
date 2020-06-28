@@ -4,8 +4,8 @@ import de.test.dao.IEmpDao;
 import de.test.entities.Emp;
 import de.test.entities.Emp_;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -15,25 +15,26 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Simple interface implementation. The PersistenceContext is definied by a JPA persistence unit.
+ * Simple interface implementation. The PersistenceContext is defined by a JPA persistence unit and provided via CDI
  */
 public class EmpDao implements IEmpDao {
 
-    @PersistenceContext(unitName = "ReadingDS")
-    // @PersistenceContext(unitName = "WritingDS")
-    private EntityManager em;
+//    @PersistenceContext(unitName = "ReadingDS")
+//    // @PersistenceContext(unitName = "WritingDS")
+   @Inject
+   private EntityManager entityManager;
 
     public void removeAllEmps() {
-        em.createQuery("DELETE FROM Emp").executeUpdate();
+        entityManager.createQuery("DELETE FROM Emp").executeUpdate();
     }
 
     public List<Emp> getAllEmps() {
 
-        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Emp> criteriaQuery = builder.createQuery(Emp.class);
         Root<Emp> rootEmp = criteriaQuery.from(Emp.class);
 
-        TypedQuery<Emp> q = em.createQuery(criteriaQuery);
+        TypedQuery<Emp> q = entityManager.createQuery(criteriaQuery);
         return q.getResultList();
     }
 
@@ -41,13 +42,13 @@ public class EmpDao implements IEmpDao {
     public Optional<Emp> findByName(String name) {
 
 
-        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Emp> criteriaQuery = builder.createQuery(Emp.class);
         Root<Emp> rootEmp = criteriaQuery.from(Emp.class);
 
         Predicate whereName = builder.equal(rootEmp.get(Emp_.ename), name);
         criteriaQuery.where(whereName);
-        TypedQuery<Emp> q = em.createQuery(criteriaQuery);
+        TypedQuery<Emp> q = entityManager.createQuery(criteriaQuery);
 
         Emp qryResult = q.getSingleResult();
 
