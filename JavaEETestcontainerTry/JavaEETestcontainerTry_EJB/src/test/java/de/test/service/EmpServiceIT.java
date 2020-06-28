@@ -4,6 +4,8 @@ import de.test.entities.Emp;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.microshed.testing.SharedContainerConfig;
+import org.microshed.testing.jupiter.MicroShedTest;
 
 import javax.inject.Inject;
 import javax.persistence.PersistenceException;
@@ -13,7 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 // Disabled, so project can be manually compiled and tested
 @Disabled
-public class EmpServiceTest {
+@SharedContainerConfig(AppDeploymentConfig.class)
+@MicroShedTest
+public class EmpServiceIT {
 
     @Inject
     EmpService sut;

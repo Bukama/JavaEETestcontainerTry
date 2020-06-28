@@ -10,7 +10,8 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <!-- JNDI name of datasource (here Wildfly 18 is used therefor the prefix must be java:jboss)-->
-        <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>
+<!--        <jta-data-source>java:jboss/jdbc/testcontainer/readingDS</jta-data-source>-->
+        <jta-data-source>jdbc/testcontainer/readingDS</jta-data-source>
 
         <properties>
             <!-- Hibernante dialect for Oracle 12c -->
