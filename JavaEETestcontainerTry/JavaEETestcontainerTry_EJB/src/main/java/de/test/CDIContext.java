@@ -12,12 +12,8 @@ import javax.persistence.PersistenceContext;
 public class CDIContext {
 
     @PersistenceContext(unitName = "ReadingDS")
-    private EntityManager entityManager;
-
     @Produces
-    public EntityManager entityManager(){
-        return entityManager;
-    }
+    public EntityManager entityManager;
 
     @Produces
     public Logger produceLogger(InjectionPoint injectionPoint) {
