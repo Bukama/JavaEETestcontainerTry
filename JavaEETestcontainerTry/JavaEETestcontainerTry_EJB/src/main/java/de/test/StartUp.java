@@ -2,8 +2,10 @@ package de.test;
 
 import de.test.entities.Emp;
 import de.test.service.EmpService;
+import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
@@ -18,8 +20,13 @@ import java.util.Optional;
 @Singleton
 @Startup
 public class StartUp {
-    @Inject
+
+    @EJB
     EmpService empService;
+
+    @Inject
+    Logger logger;
+
 
     @PostConstruct
     void postConstruct() {
@@ -40,7 +47,7 @@ public class StartUp {
         try {
             empService.deleteEmp();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.catching(e);
         }
 
     }
