@@ -19,10 +19,12 @@ import java.util.Optional;
 public class EmpDao extends GenericDao implements IEmpDao {
 
 
+    @Override
     public void removeAllEmps() {
         entityManager.createQuery("DELETE FROM Emp").executeUpdate();
     }
 
+    @Override
     public List<Emp> getAllEmps() {
 
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
