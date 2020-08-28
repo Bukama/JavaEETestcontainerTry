@@ -1,48 +1,35 @@
 
 package de.test.genericdao.dao.impl;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 
 /**
- * Abstrakte Basisklasse für Data Access Objects. Bietet Methoden um Zugriff auf den {@link EntityManager} oder den
- * {@link CriteriaBuilder} zu erlangen.
- * <p>
- * Die tatsächliche Bereitstellung des {@link EntityManager} Objektes liegt in der Verantwortung der eigentlichen
- * Implementierung des Data Access Objects.
-
+ * Abstract base class for Data Access Objects.
+ * Offers methods to access the EntityManager or the CriteriaBuilder.
+ *
+ * Implementation must provide concrete methods to access the EntityManager.
  */
 public abstract class Dao implements Serializable {
 
   /** The serial version uid. */
   private static final long serialVersionUID = 1L;
 
-  /** The static logger. */
-  private static final Logger LOG = LogManager.getLogger();
-
   /**
-   * Liefert den {@link EntityManager} zurück.
+   * Abstract method to access the EntityManager
    * 
-   * @return Der EntityManager, der verwendet wird.
+   * @return EntityManager to be used.
    */
   protected abstract EntityManager getEntityManager();
 
   /**
-   * Liefert den {@link CriteriaBuilder} zurück.
+   * Returns a CriteriaBuilder.
    * 
-   * @return Der CriteriaBuilder, der verwendet wird.
+   * @return CriteriaBuilder to be used
    */
   protected CriteriaBuilder getCriteriaBuilder() {
-    LOG.entry();
-
-    CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
-
-    LOG.exit(criteriaBuilder);
-    return criteriaBuilder;
+    return getEntityManager().getCriteriaBuilder();
   }
 
 }

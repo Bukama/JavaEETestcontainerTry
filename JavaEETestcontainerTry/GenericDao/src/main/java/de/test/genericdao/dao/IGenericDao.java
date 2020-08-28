@@ -2,134 +2,130 @@
 package de.test.genericdao.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
- * Generischeres Interface für DAOs. Es bietet typsichere Methoden für Create, Read, Update und Delete an.
+ * Interface for dynamic but typesafe CRUD and FIND methods.
  * 
  */
 public interface IGenericDao<T> {
 
   /**
-   * Legt das übergebene, generische Objekt an und liefert die Entität zurück. Nach dem Anlegen des Objektes erfolgt
-   * immer ein Flush gegen die Datenbank.
+   * Creates the passed, generic object and returns the entity.
+   * If an flush on the database occurs depends on the default value.
    * 
    * @param generic
-   *          Das generische Objekt, das angelegt werden soll.
-   * @return Das angelegte generische Objekt
+   *          The object to be created
+   * @return Created entity
    */
   T create(T generic);
 
   /**
-   * Legt das übergebene, generische Object an und liefert die Entität zurück. Über den boolschen Parameter kann
-   * gesteuert werden, ob ein Flush gegen die Datenbank erfolgen soll.
-   * 
+   * Creates the passed, generic object and returns the entity.
+   *
    * @param generic
-   *          Das generische Objekt, das angelegt werden soll.
+   *          The object to be created
    * @param flush
-   *          Der Schalter bestimmt, ob ein Flush gegen die Datenbank erfolgen soll.
-   * @return Das angelegte generische Objekt
+   *        Parameter to define if a flush shall be done or not
+   * @return Created entity
    */
   T create(T generic, boolean flush);
 
   /**
-   * Legt die übergebene Liste von generischen Objekten an und liefert deren Entitäten zurück. Nach dem Anlegen der
-   * Objekte erfolgt immer ein Flush gegen die Datenbank.
-   * 
+   * Creates the passed, generic list of objects and returns the entities.
+   * If an flush on the database occurs depends on the default value.
+   *
    * @param genericList
-   *          Die Liste von generischen Objekten, die angelegt werden sollen.
-   * @return Die Liste der angelegten Objekte
+   *          The objects to be created
+   * @return Created entities, never null.
    */
   List<T> create(List<T> genericList);
 
   /**
-   * Legt die übergebene Liste von generischen Objekten an und liefert deren Entitäten zurück. Über den boolschen
-   * Parameter kann gesteuert werden, ob ein Flush gegen die Datenbank erfolgen soll.
-   * 
+   * Creates the passed, generic list of objects and returns the entities.
+   *
    * @param genericList
-   *          Die Liste von generischen Objekten, die angelegt werden sollen.
+   *          The objects to be created
    * @param flush
-   *          Der Schalter bestimmt, ob ein Flush gegen die Datenbank erfolgen soll.
-   * @return Die Liste der angelegten Objekte
+   *        Parameter to define if a flush shall be done or not
+   * @return Created list of entities, never null.
    */
   List<T> create(List<T> genericList, boolean flush);
 
   /**
-   * Löscht das übergebene Objekt. Nach dem Löschen des Objektes erfolgt immer ein Flush gegen die Datenbank.
+   * Deletes the given object.
+   * If an flush on the database occurs depends on the default value.
    * 
    * @param id
-   *          Das Object, das gelöscht werden soll.
+   *          Object to be deleted
    */
   void delete(Object id);
 
   /**
-   * Löscht das übergene Objekt. Über den boolschen Parameter kann gesteuert werden, ob ein Flush gegen die Datenbank
-   * erfolgen soll.
-   * 
+   * Deletes the given object.
+   *
    * @param id
-   *          Das Object, das gelöscht werden soll.
+   *          Object to be deleted
    * @param flush
-   *          Der Schalter bestimmt, ob ein Flush gegen die Datenbank erfolgen soll.
+   *        Parameter to define if a flush shall be done or not
    */
   void delete(Object id, boolean flush);
 
   /**
-   * Aktualisiert das übergebene Objekt und liefert die aktualisierte Entität zurück. Nach dem Update des Objektes
-   * erfolgt immer ein Flush gegen die Datenbank.
-   * 
+   * Updates the given object.
+   * If an flush on the database occurs depends on the default value.
+   *
    * @param generic
-   *          Das Objekt, das in der Datenbank aktualisiert werden soll
-   * @return Das aktualisierte Objekt
+   *          Object to be deleted
+   * @return The updated object
    */
   T update(T generic);
 
   /**
-   * Aktualisiert das übergebene Objekt und liefert die aktualisierte Entität zurück. Über den boolschen Parameter kann
-   * gesteuert werden, ob ein Flush gegen die Datenbank erfolgen soll.
-   * 
+   * Updates the given object.
+   *
    * @param generic
-   *          Das Objekt, das in der Datenbank aktualisiert werden soll.
+   *          Object to be deleted
    * @param flush
-   *          Der Schalter bestimmt, ob ein Flush gegen die Datenbank erfolgen soll.
-   * @return Das aktualisierte Objekt
+   *        Parameter to define if a flush shall be done or not
+   * @return The updated object
    */
   T update(T generic, boolean flush);
 
   /**
-   * Aktualisiert die übergebene Liste von Objekten und liefert deren aktualisierte Entitäten wieder zurück. Nach dem
-   * Update erfolgt immer ein Flush gegen die Datenbank.
-   * 
+   * Updates the given list of objects.
+   * If an flush on the database occurs depends on the default value.
+   *
    * @param genericList
-   *          Die Liste der Objekte, die aktualisiert werden sollen.
-   * @return Die Liste der aktualisierten Objekte.
+   *          Objects to be updated
+   * @return The updated objects, never null.
    */
   List<T> update(List<T> genericList);
 
   /**
-   * Aktualisiert die übergebene Liste von Objekten und liefert deren aktualisierte Entitäten wieder zurück. Über den
-   * boolschen Parameter kann gesteuert werden, ob ein Flush gegen die Datenbank erfolgen soll.
-   * 
+   * Updates the given list of objects.
+   *
    * @param genericList
-   *          Die Liste der Objekte, die aktualisiert werden sollen.
+   *          Objects to be updated
    * @param flush
-   *          Der Schalter bestimmt, ob ein Flush gegen die Datenbank erfolgen soll.
-   * @return Die Liste der aktualisierten Objekte.
+   *        Parameter to define if a flush shall be done or not
+   * @return The updated objects, never null.
    */
   List<T> update(List<T> genericList, boolean flush);
 
   /**
-   * Findet das Objekt mit der übergebenen Objekt ID und liefert die Entität zurück. Wird als Parameter NULL übergeben,
-   * gibt die Methode ebenfalls NULL zurück.
+   * Finds the object with the given id.
    * 
    * @param id
-   *          Die Objekt ID zu dem das dazugehörige Objekt in der Datenbank gefunden werden soll
-   * @return Das gefundene Objekt.
+   *          Id of the object to be found
+   * @return Optional containing the object. Empty if nothing was found or NULL was passed as an id.
    */
-  T find(Object id);
+  Optional<T> find(Object id);
 
   /**
-   * Liefert alle Objekte vom generischen Typ zurueck.
+   * Finds all objects of the dynamic type.
    * 
-   * @return Liste aller Objekte des generischen Typs.
+   * @return List of objects, never null.
    */
   List<T> findAll();
 

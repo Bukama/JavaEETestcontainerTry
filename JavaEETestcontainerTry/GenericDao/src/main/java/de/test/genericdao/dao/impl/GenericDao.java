@@ -5,8 +5,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 /**
- * Generische Klasse für DAOs. Stellt Implementationen für typsichere Methoden für Create, Read, Update und Delete zur
- * Verfügung.
+ * Generic Class for Data Access Objects.
+ * Provides typesafe methods for CRUD operations.
  */
 public class GenericDao<T> extends CrudDao<T> {
 

@@ -2,37 +2,25 @@
 package de.test.genericdao.dao.impl;
 
 import de.test.genericdao.dao.IGenericDao;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaQuery;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * Implementierung des {@link IGenericDao} Interfaces und Erweiterung der {@link FindDao} Klasse um generiche
- * Funktionalitäten für Create, Read, Update und Delete.
+ * Implements the IGenericDao interfaces and extends the FindDao class for additional CRUD methods.
+ *
+ * Default flush mode is false.
  */
 public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
 
   /** The serial version uid. */
   private static final long serialVersionUID = 1L;
-
-  /** The static logger. */
-  private static final Logger LOG = LogManager.getLogger();
-
-  /** The log4j Marker for SQL-Statements. Can be used in log4j Filter. */
-  protected static final Marker SQL = MarkerManager.getMarker("SQL");
 
   /** The default flush mode, used in methods without flush parameter. */
   protected static final boolean FLUSH_MODE_DEFAULT = false;
@@ -44,19 +32,18 @@ public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
   private Class<T> type;
 
   /**
-   * Default-Konstruktor, der zur Initialisierung die {@link #init()} Methode aufruft.
+   * Default constructor which calls the init() method.
    */
   public CrudDao() {
     init();
   }
 
   /**
-   * Methode zur Initialisierung der Klasse. Bestimmt die Klasse des generichen Klassenparameter.
+   * Methoid to initalize the class (defines the class of the generic parameter).
    */
   @SuppressWarnings("unchecked")
   @PostConstruct
   private void init() {
-    LOG.entry();
 
     Type generic;
     if (getClass().getGenericSuperclass() instanceof ParameterizedType) {
@@ -67,48 +54,31 @@ public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
 
     ParameterizedType pt = (ParameterizedType) generic;
     type = (Class<T>) pt.getActualTypeArguments()[0];
-
-    LOG.exit();
   }
 
   @Override
   public T create(T generic) {
-    LOG.entry(generic);
-
-    T returnValue = create(generic, FLUSH_MODE_DEFAULT);
-
-    LOG.exit(returnValue);
-    return returnValue;
+    return create(generic, FLUSH_MODE_DEFAULT);
   }
 
   @Override
   public T create(T generic, boolean flush) {
-    LOG.entry(generic, flush);
-
     EntityManager entityManager = getEntityManager();
     entityManager.persist(generic);
 
     if (flush) {
       entityManager.flush();
     }
-
-    LOG.exit(generic);
     return generic;
   }
 
   @Override
   public List<T> create(List<T> genericList) {
-    LOG.entry(genericList);
-
-    List<T> returnValue = create(genericList, FLUSH_MODE_DEFAULT);
-
-    LOG.exit(returnValue);
-    return returnValue;
+    return create(genericList, FLUSH_MODE_DEFAULT);
   }
 
   @Override
   public List<T> create(List<T> genericList, boolean flush) {
-    LOG.entry(genericList, flush);
 
     if (null != genericList && !genericList.isEmpty()) {
       for (T t : genericList) {
@@ -120,24 +90,16 @@ public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
       }
     }
 
-    LOG.exit(genericList);
     return genericList;
   }
 
   @Override
   public T update(T generic) {
-    LOG.entry(generic);
-
-    T merge = update(generic, FLUSH_MODE_DEFAULT);
-
-    LOG.exit(merge);
-    return merge;
+    return update(generic, FLUSH_MODE_DEFAULT);
   }
 
   @Override
   public T update(T generic, boolean flush) {
-    LOG.entry(generic, flush);
-
     EntityManager entityManager = getEntityManager();
     T merge = entityManager.merge(generic);
 
@@ -145,27 +107,21 @@ public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
       entityManager.flush();
     }
 
-    LOG.exit(merge);
-    return merge;
+   return merge;
   }
 
   @Override
   public List<T> update(List<T> genericList) {
-    LOG.entry(genericList);
-
-    List<T> returnValue = update(genericList, FLUSH_MODE_DEFAULT);
-
-    LOG.exit(returnValue);
-    return returnValue;
+    return update(genericList, FLUSH_MODE_DEFAULT);
   }
 
   @Override
   public List<T> update(List<T> genericList, boolean flush) {
-    LOG.entry(genericList, flush);
+
     List<T> returnValue = null;
 
     if (null != genericList && !genericList.isEmpty()) {
-      // Rückgabeliste aus Performancegründen direkt mit der Größe der Eingabliste initialisieren
+      // To increase performance, initialize the result list with size of the input list.
       returnValue = new ArrayList<T>(genericList.size());
 
       for (T t : genericList) {
@@ -177,204 +133,168 @@ public abstract class CrudDao<T> extends FindDao implements IGenericDao<T> {
       }
     }
 
-    LOG.exit(returnValue);
+    returnValue = (null != returnValue) ? returnValue : Collections.emptyList();
+
     return returnValue;
   }
 
   @Override
   public void delete(Object id) {
-    LOG.entry(id);
-
     delete(id, FLUSH_MODE_DEFAULT);
-
-    LOG.exit();
   }
 
   @Override
   public void delete(Object id, boolean flush) {
-    LOG.entry(id, flush);
-
     EntityManager entityManager = getEntityManager();
     entityManager.remove(entityManager.getReference(type, id));
 
     if (flush) {
       entityManager.flush();
     }
-
-    LOG.exit();
   }
 
   @Override
-  public T find(Object id) {
-    LOG.entry(id);
+  public Optional<T> find(Object id) {
 
-    T returnValue = null;
+    Optional<T> returnValue = Optional.empty();
 
     if (null != id) {
-      returnValue = getEntityManager().find(type, id);
+      T temp = getEntityManager().find(type, id);
+      returnValue = Optional.ofNullable(temp);
     }
-
-    LOG.exit(returnValue);
     return returnValue;
   }
 
   @Override
   public List<T> findAll() {
-    LOG.entry();
 
     List<T> returnValue = getEntityManager().createQuery("FROM " + type.getName()).getResultList();
 
-    LOG.exit(returnValue);
+    returnValue = (null != returnValue) ? returnValue : Collections.emptyList();
     return returnValue;
   }
 
-  /**
-   * Führt eine {@link CriteriaQuery} gegen die Datenbank aus und gibt das Ergebnis zurück.
-   * <p>
-   * Wandelt die CriteriaQuery in eine TypedQuery um, setzt die übergebenen Parameter und ruft die entsprechende Methode
-   * mit der TypedQuery als Parameter aus der Klasse {@link FindDao} auf.
-   * 
-   * @param queryString
-   *          Die Abfrage, die ausgeführt werden soll.
-   * @param parameters
-   *          Die Parameter der Abfrage.
-   * @return Die Liste der gefundenen Elemente.
+   /**
+   * Executes a NamedQuery to return a list of results.
+   * The query string is transformed into a TypedQuery, before the parameters are set.
+   *
+    * @param queryString
+    *          Name of the NamedQuery.
+    * @param parameters
+    *          Parameters that should be passed to the query
+   * @return Results, never null
    * @see FindDao#findByTypedQuery(TypedQuery)
    */
   protected List<T> findByNamedQuery(String queryString, Map<String, Object> parameters) {
-    LOG.entry(queryString, parameters);
-
     TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
-    List<T> returnValue = findByTypedQuery(typedQuery);
 
-    LOG.exit(returnValue);
-    return returnValue;
+    return findByTypedQuery(typedQuery);
   }
 
   /**
-   * Führt eine {@link CriteriaQuery} gegen die Datenbank aus und gibt das Ergebnis zurück.
-   * <p>
-   * Wandelt die CriteriaQuery in eine TypedQuery um, setzt die übergebenen Parameter und ruft die entsprechende Methode
-   * mit der TypedQuery als Parameter aus der Klasse {@link FindDao} auf.
-   * 
+   * Executes a NamedQuery to return a list of results with a maximum of results, using "setmaxResults".
+   * The query string is transformed into a TypedQuery, before the parameters are set.
+   *
    * @param queryString
-   *          Die Abfrage, die ausgeführt werden soll.
+   *          Name of the NamedQuery.
    * @param parameters
-   *          Die Parameter der Abfrage.
-   * @param maxResults
-   *          Die maximale Größe der Ergebnismenge.
-   * @return Die Liste der gefundenen Elemente.
+   *          Parameters that should be passed to the query
+   * @param maxResults Maximum number of results. Only used if greater then zero.
+   * @return Results, never null
    * @see FindDao#findByTypedQuery(TypedQuery, int)
    */
   protected List<T> findByNamedQuery(String queryString, Map<String, Object> parameters, int maxResults) {
-    LOG.entry(queryString, parameters, maxResults);
-
     TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
-    List<T> returnValue = findByTypedQuery(typedQuery, maxResults);
 
-    LOG.exit(returnValue);
-    return returnValue;
+    return findByTypedQuery(typedQuery, maxResults);
   }
 
   /**
-   * Führt eine {@link CriteriaQuery} gegen die Datenbank aus und gibt das Ergebnis zurück.
-   * <p>
-   * Wandelt die CriteriaQuery in eine TypedQuery um, setzt die übergebenen Parameter und ruft die entsprechende Methode
-   * mit der TypedQuery als Parameter aus der Klasse {@link FindDao} auf.
-   * 
+   * Executes a NamedQuery and returns the first result of the result list.
+   * The query string is transformed into a TypedQuery, before the parameters are set.
+   *
    * @param queryString
-   *          Die Abfrage, die ausgeführt werden soll.
+   *          Name of the NamedQuery.
    * @param parameters
-   *          Die Parameter der Abfrage.
-   * @return Das gesuchte Element.
+   *          Parameters that should be passed to the query
+   * @return The first element of the result set
    * @see FindDao#findByTypedQueryFirstResult(TypedQuery)
    */
-  protected T findByNamedQueryFirstResult(String queryString, Map<String, Object> parameters) {
-    LOG.entry(queryString, parameters);
+  protected Optional<T> findByNamedQueryFirstResult(String queryString, Map<String, Object> parameters) {
 
     TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
-    T returnValue = findByTypedQueryFirstResult(typedQuery);
 
-    LOG.exit(returnValue);
-    return returnValue;
+    return findByTypedQueryFirstResult(typedQuery);
   }
 
   /**
-   * Führt eine {@link CriteriaQuery} gegen die Datenbank aus und gibt das Ergebnis zurück.
-   * <p>
-   * Wandelt die CriteriaQuery in eine TypedQuery um, setzt die übergebenen Parameter und ruft die entsprechende Methode
-   * mit der TypedQuery als Parameter aus der Klasse {@link FindDao} auf.
-   * 
+   * Executes a NamedQuery and returns the first result of the result list, if it contains exactly one result.
+   * The query string is transformed into a TypedQuery, before the parameters are set.
+   *
    * @param queryString
-   *          Die Abfrage, die ausgeführt werden soll.
+   *          Name of the NamedQuery.
    * @param parameters
-   *          Die Parameter der Abfrage.
-   * @return Das gesuchte Element.
+   *          Parameters that should be passed to the query
+   * @return The unique element of the result set
    * @see FindDao#findByTypedQuerySingleResult(TypedQuery)
    */
-  protected T findByNamedQuerySingleResult(String queryString, Map<String, Object> parameters) {
-    LOG.entry(queryString, parameters);
+  protected Optional<T> findByNamedQuerySingleResult(String queryString, Map<String, Object> parameters) {
+    TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
+
+     return findByTypedQuerySingleResult(typedQuery);
+  }
+
+
+  /**
+   * Executes a NamedQuery and returns the single result of the result list, if it contains exactly one result.
+   * The query string is transformed into a TypedQuery, before the parameters are set.
+   *
+   * @param queryString
+   *          Name of the NamedQuery.
+   * @param parameters
+   *          Parameters that should be passed to the query
+   * @return The unique element of the result set
+   * @throws NoResultException
+   *         When the result does not contain exactly one element.   *
+   * @see FindDao#findByTypedQueryStrictlySingleResult(TypedQuery)
+   */
+  protected Optional<T> findByNamedQueryStrictlySingleResult(String queryString, Map<String, Object> parameters)
+      throws NoResultException {
 
     TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
-    T returnValue = findByTypedQuerySingleResult(typedQuery);
 
-    LOG.exit(returnValue);
-    return returnValue;
+    return findByTypedQueryStrictlySingleResult(typedQuery);
   }
 
   /**
-   * Führt eine {@link CriteriaQuery} gegen die Datenbank aus und gibt das Ergebnis zurück.
-   * <p>
-   * Wandelt die CriteriaQuery in eine TypedQuery um, setzt die übergebenen Parameter und ruft die entsprechende Methode
-   * mit der TypedQuery als Parameter aus der Klasse {@link FindDao} auf.
-   * 
-   * @param queryString
-   *          Die Abfrage, die ausgeführt werden soll.
-   * @param parameters
-   *          Die Parameter der Abfrage.
-   * @return Das gesuchte Element.
-   * @throws NoResultException
-   *           Wenn nicht genau ein (!) Ergebnis gefunden wurde.
-   * @see FindDao#findByTypedQueryStrictlySingleResult(TypedQuery)
+   * Returns the reference of an object.
+   *
+   * @param id Object the reference should be returned
+   * @return Found reference, never null
    */
-  protected T findByNamedQueryStrictlySingleResult(String queryString, Map<String, Object> parameters)
-      throws NoResultException {
-    LOG.entry(queryString, parameters);
-
-    TypedQuery<T> typedQuery = getTypedQuery(queryString, parameters);
-    T returnValue = findByTypedQueryStrictlySingleResult(typedQuery);
-
-    LOG.exit(returnValue);
-    return returnValue;
-  }
-
-  protected T getReference(Object id) {
-    LOG.entry(id);
+  protected Optional<T> getReference(Object id) {
 
     T returnValue = getEntityManager().getReference(type, id);
 
-    LOG.exit(returnValue);
-    return returnValue;
+    return Optional.ofNullable(returnValue);
   }
 
   /**
-   * Erzeugt eine TypedQuery anhand der NamedQuery (queryString) und setzt die Parameter aus der Map.
-   * 
+   * Creates a TypedQuery by a NamedQuery and sets the parameters to the query.
+   *
    * @param queryString
-   *          Die NamedQuery aus der die TypedQuery erzeugt werden soll.
+   *          Name of the NamedQuery.
    * @param parameters
-   *          Die Parameter für die Query.
-   * @return TypedQuery&lt;T&gt;
+   *          Parameters that should be passed to the query
+   * @return Created TypedQuery
    */
   private TypedQuery<T> getTypedQuery(String queryString, Map<String, Object> parameters) {
-    LOG.entry(queryString, parameters);
 
     TypedQuery<T> typedQuery = getEntityManager().createNamedQuery(queryString, type);
     for (Entry<String, Object> entry : parameters.entrySet()) {
       typedQuery.setParameter(entry.getKey(), entry.getValue());
     }
 
-    LOG.exit(typedQuery);
     return typedQuery;
   }
 
