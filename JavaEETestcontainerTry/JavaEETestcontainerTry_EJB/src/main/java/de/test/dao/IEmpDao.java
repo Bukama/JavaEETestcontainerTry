@@ -1,6 +1,7 @@
 package de.test.dao;
 
 import de.test.entities.Emp;
+import de.test.genericdao.dao.IGenericDao;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +9,7 @@ import java.util.Optional;
 /**
  * Simple interface to wrap database access.
  */
-public interface IEmpDao {
+public interface IEmpDao extends IGenericDao<Emp> {
 
     /**
      * Removes all records in the table.

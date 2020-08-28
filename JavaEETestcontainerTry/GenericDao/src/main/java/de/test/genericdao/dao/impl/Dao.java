@@ -24,6 +24,11 @@ public abstract class Dao implements Serializable {
   protected abstract EntityManager getEntityManager();
 
   /**
+   * Setter for the EntityManager.
+   */
+  protected abstract void setEntityManager(EntityManager em);
+
+  /**
    * Returns a CriteriaBuilder.
    * 
    * @return CriteriaBuilder to be used

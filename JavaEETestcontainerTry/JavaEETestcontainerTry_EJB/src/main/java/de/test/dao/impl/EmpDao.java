@@ -1,11 +1,10 @@
 package de.test.dao.impl;
 
-import de.test.dao.GenericDao;
 import de.test.dao.IEmpDao;
 import de.test.entities.Emp;
 import de.test.entities.Emp_;
+import de.test.genericdao.dao.impl.GenericDao;
 
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -14,42 +13,36 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Simple interface implementation. The PersistenceContext is defined by a JPA persistence unit and provided via CDI
+ * Simple interface implementation. The PersistenceContext is defined by a JPA persistence unit and provided via CDI.
  */
-public class EmpDao extends GenericDao implements IEmpDao {
+public class EmpDao extends GenericDao<Emp> implements IEmpDao {
 
-
-    @Override
+  @Override
     public void removeAllEmps() {
-        entityManager.createQuery("DELETE FROM Emp").executeUpdate();
+        getEntityManager().createQuery("DELETE FROM Emp").executeUpdate();
     }
 
     @Override
     public List<Emp> getAllEmps() {
 
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaBuilder builder = getCriteriaBuilder();
         CriteriaQuery<Emp> criteriaQuery = builder.createQuery(Emp.class);
         Root<Emp> rootEmp = criteriaQuery.from(Emp.class);
 
-        TypedQuery<Emp> q = entityManager.createQuery(criteriaQuery);
-        return q.getResultList();
+        return findByCriteriaQuery(criteriaQuery);
     }
 
     @Override
     public Optional<Emp> findByName(String name) {
 
-
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaBuilder builder = getCriteriaBuilder();
         CriteriaQuery<Emp> criteriaQuery = builder.createQuery(Emp.class);
         Root<Emp> rootEmp = criteriaQuery.from(Emp.class);
 
         Predicate whereName = builder.equal(rootEmp.get(Emp_.ename), name);
         criteriaQuery.where(whereName);
-        TypedQuery<Emp> q = entityManager.createQuery(criteriaQuery);
 
-        Emp qryResult = q.getSingleResult();
-
-        return Optional.ofNullable(qryResult);
+        return findByCriteriaQuerySingleResult(criteriaQuery);
     }
 
 }

@@ -24,4 +24,10 @@ public class GenericDao<T> extends CrudDao<T> {
     return entityManager;
   }
 
+  @Override
+  protected void setEntityManager(EntityManager em) {
+    this.entityManager = em;
+  }
+
+
 }
